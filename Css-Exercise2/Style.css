@@ -1,0 +1,163 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  color: #333;
+  padding: 2rem;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gallery-header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-header p {
+  color: #7f8c8d;
+}
+
+/* Flexbox for Filter Buttons */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #ffffff;
+  border: 2px solid #3498db;
+  color: #3498db;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.filter-btn.active {
+  background-color: #3498db;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+/* Main Gallery Grid Layout */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Desktop: 4 columns */
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  transition: all 0.4s ease;
+}
+
+/* Card Layout using Grid / Flex Structure */
+.gallery-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Category Tag Badge */
+.category-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+/* Overlay with Description */
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+  color: #fff;
+  padding: 1.5rem 1rem 1rem 1rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease-in-out;
+}
+
+.card-overlay h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.card-overlay p {
+  font-size: 0.85rem;
+  color: #ddd;
+}
+
+/* Hover Effects on Cards */
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-card:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-card:hover .card-overlay {
+  transform: translateY(0);
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Mobile: 1 column */
+  }
+
+  body {
+    padding: 1rem;
+  }
+}

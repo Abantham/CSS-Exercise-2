@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Image Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="gallery-header">
+      <h1>Life Choices Academy</h1>
+      <p>Explore our curated collection of photography</p>
+    </header>
+
+    <div class="filter-container">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="landscapes">Landscapes</button>
+      <button class="filter-btn" data-filter="portraits">Portraits</button>
+      <button class="filter-btn" data-filter="architecture">
+        Architecture
+      </button>
+    </div>
+
+    <main class="gallery-grid">
+      <div class="gallery-card" data-category="landscapes">
+        <div class="card-inner">
+          <img
+            src="https://picsum.photos/id/10/400/300"
+            alt="Mountain Landscape"
+          />
+          <span class="category-tag">Landscapes</span>
+          <div class="card-overlay">
+            <h3>Serene Mountains</h3>
+            <p>A breathtaking view of misty mountain peaks at sunrise.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="portraits">
+        <div class="card-inner">
+          <img src="https://picsum.photos/id/64/400/300" alt="Portrait" />
+          <span class="category-tag">Portraits</span>
+          <div class="card-overlay">
+            <h3>Urban Portrait</h3>
+            <p>Capturing raw emotion in the heart of the city.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="architecture">
+        <div class="card-inner">
+          <img src="https://picsum.photos/id/122/400/300" alt="Architecture" />
+          <span class="category-tag">Architecture</span>
+          <div class="card-overlay">
+            <h3>Modern Lines</h3>
+            <p>Geometric perfection in contemporary building design.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="landscapes">
+        <div class="card-inner">
+          <img
+            src="https://picsum.photos/id/15/400/300"
+            alt="Water Waterfall"
+          />
+          <span class="category-tag">Landscapes</span>
+          <div class="card-overlay">
+            <h3>Forest Waterfall</h3>
+            <p>Crystal clear water rushing through lush greenery.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="portraits">
+        <div class="card-inner">
+          <img src="https://picsum.photos/id/91/400/300" alt="Portrait" />
+          <span class="category-tag">Portraits</span>
+          <div class="card-overlay">
+            <h3>Golden Hour Smile</h3>
+            <p>Warm sunlight enhancing natural expression.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="architecture">
+        <div class="card-inner">
+          <img src="https://picsum.photos/id/142/400/300" alt="Architecture" />
+          <span class="category-tag">Architecture</span>
+          <div class="card-overlay">
+            <h3>Classic Bridge</h3>
+            <p>Engineering marvel stretching across the horizon.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="landscapes">
+        <div class="card-inner">
+          <img src="https://picsum.photos/id/29/400/300" alt="Landscape" />
+          <span class="category-tag">Landscapes</span>
+          <div class="card-overlay">
+            <h3>Coastal Horizon</h3>
+            <p>Waves crashing gently onto a secluded sandy shore.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="portraits">
+        <div class="card-inner">
+          <img src="https://picsum.photos/id/177/400/300" alt="Portrait" />
+          <span class="category-tag">Portraits</span>
+          <div class="card-overlay">
+            <h3>Studio Focus</h3>
+            <p>Deep concentration captured in controlled lighting.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="architecture">
+        <div class="card-inner">
+          <img src="https://picsum.photos/id/188/400/300" alt="Architecture" />
+          <span class="category-tag">Architecture</span>
+          <div class="card-overlay">
+            <h3>Glass Skyscraper</h3>
+            <p>Reflecting the clouds from towering heights.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="landscapes">
+        <div class="card-inner">
+          <img src="https://picsum.photos/id/54/400/300" alt="Landscape" />
+          <span class="category-tag">Landscapes</span>
+          <div class="card-overlay">
+            <h3>Autumn Woods</h3>
+            <p>Vibrant orange and yellow leaves carpeting the forest floor.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="portraits">
+        <div class="card-inner">
+          <img src="https://picsum.photos/id/338/400/300" alt="Portrait" />
+          <span class="category-tag">Portraits</span>
+          <div class="card-overlay">
+            <h3>Monochrome Mood</h3>
+            <p>Black and white portrait highlighting texture and shadow.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="architecture">
+        <div class="card-inner">
+          <img src="https://picsum.photos/id/364/400/300" alt="Architecture" />
+          <span class="category-tag">Architecture</span>
+          <div class="card-overlay">
+            <h3>Historic Archway</h3>
+            <p>Intricate stonework from centuries past.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll(".gallery-card");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Remove active class from all
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.getAttribute("data-filter");
+
+          cards.forEach((card) => {
+            if (
+              filter === "all" ||
+              card.getAttribute("data-category") === filter
+            ) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
